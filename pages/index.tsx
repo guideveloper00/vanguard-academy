@@ -3,8 +3,8 @@ import Head from "next/head";
 // import { useDispatch } from "react-redux";
 
 // import { Reducers } from "../shared/store/reducers";
-import { ThemeButton } from "../components/switchTheme";
-import * as S from "../styles/home";
+import { ThemeButton } from "../components/ThemeButton";
+import * as S from "../styles";
 
 const Home: NextPage = () => {
   // const dispatch = useDispatch();

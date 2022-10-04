@@ -1,3 +1,3 @@
 import styled from "styled-components";
 
-export const Teste = styled.div``;
+export const ThemeButton = styled.div``;
