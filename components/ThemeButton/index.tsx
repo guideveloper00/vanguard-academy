@@ -22,7 +22,7 @@ export const ThemeButton = () => {
 
   return (
     <>
-      <S.Teste onClick={switchTheme}>Button theme</S.Teste>
+      <S.ThemeButton onClick={switchTheme}>Button theme</S.ThemeButton>
     </>
   );
 };
