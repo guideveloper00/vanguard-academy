@@ -3,7 +3,7 @@ import Head from "next/head";
 // import { useDispatch } from "react-redux";
 
 // import { Reducers } from "../shared/store/reducers";
-import { ThemeButton } from "../components/ThemeButton";
+import { ThemeButton } from "../components";
 import * as S from "../styles";
 
 const Home: NextPage = () => {
