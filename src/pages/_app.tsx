@@ -5,18 +5,15 @@ import { Provider } from "react-redux";
 
 import store from "../shared/store";
 import { GlobalStyle } from "../styles/global";
-// import theme from '../styles/theme'
 
 const MyApp: React.FC<AppProps> = ({ Component, pageProps }) => {
   return (
-    <>
-      <Provider store={store}>
-        <ThemeProvider>
-          <Component {...pageProps} />
-          <GlobalStyle />
-        </ThemeProvider>
-      </Provider>
-    </>
+    <Provider store={store}>
+      <ThemeProvider>
+        <Component {...pageProps} />
+        <GlobalStyle />
+      </ThemeProvider>
+    </Provider>
   );
 };
 
