@@ -4,6 +4,7 @@ import { useState } from "react";
 import { Modal } from "../../../../components/Modal";
 import useWindowDimensions from "../../../../shared/utils/WindowWidth";
 import * as S from "./styles";
+
 export const Introduction = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
 

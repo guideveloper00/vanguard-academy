@@ -9,22 +9,19 @@ import { Introduction } from "./components/";
 import { SignaturePlans } from "./components/";
 import * as S from "./styles";
 
-// eslint-disable-next-line @typescript-eslint/naming-convention
-// interface ServerSideProps {
-//   product: {
-//     priceId: number;
-//     priceAmount: number;
-//   };
-// }
-
-// { product }: ServerSideProps
-
 export const HomeTemplate = () => {
-  // console.log(product);
   return (
     <>
       <Head>
         <title>Home</title>
+        <meta
+          name="keywords"
+          content="aulas, trilhas, front-end, front end, back-end, back end, dados, cursos avançados, curso javascript, curso java, curso python"
+        ></meta>
+        <meta
+          name="description"
+          content="Vanguard - cursos de tecnologia do iniciante ao avançado"
+        ></meta>
       </Head>
       <Header />
       <S.Container>
