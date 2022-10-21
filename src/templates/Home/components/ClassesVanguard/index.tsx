@@ -48,26 +48,6 @@ export const ClassesVanguard = () => {
     },
   ];
 
-  // const technologies = [
-  //   {
-  //     title: "Tecnologias",
-  //     items: [
-  //       {
-  //         title: "Javascript",
-  //         icon: JavascriptIcon,
-  //       },
-  //       { title: "Node", icon: NodeIcon },
-
-  //       { title: "Python", icon: PythonIcon },
-  //       { title: "C++", icon: CppIcon },
-  //       { title: "C#", icon: CsharpIcon },
-  //       { title: "Ruby on rails", icon: RubyIcon },
-  //       { title: "Java", icon: JavaIcon },
-  //       { title: "Typescript", icon: TypescriptIcon },
-  //     ],
-  //   },
-  // ];
-
   return (
     <S.Container>
       {trails.map((trail, key) => (

@@ -1,4 +1,7 @@
+/* eslint-disable no-unused-vars */
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import Link from "next/link";
+import { useState } from "react";
 
 import { Portal } from "../Portal";
 import * as S from "./styles";
@@ -8,25 +11,28 @@ type ModalProps = {
   handleCloseModal: () => void;
 };
 
-const signatures = [
-  {
-    signatureTime: "1 mês",
-    price: 50,
-    link: "/teste",
-  },
-  {
-    signatureTime: "3 mêses",
-    price: 200,
-    link: "/teste",
-  },
-  {
-    signatureTime: "1 ano",
-    price: 500,
-    link: "/teste",
-  },
-];
-
 export const Modal = ({ isModalOpen, handleCloseModal }: ModalProps) => {
+  const [userHasActiveSubscription, setUserHasActiveSubscription] =
+    useState(false);
+
+  const signatures = [
+    {
+      signatureTime: "1 mês",
+      price: 50,
+      link: "/teste",
+    },
+    {
+      signatureTime: "3 mêses",
+      price: 200,
+      link: "/teste",
+    },
+    {
+      signatureTime: "1 ano",
+      price: 500,
+      link: "/teste",
+    },
+  ];
+
   return (
     <Portal id="modal-root">
       {isModalOpen && (
@@ -48,9 +54,16 @@ export const Modal = ({ isModalOpen, handleCloseModal }: ModalProps) => {
                     }).format(signature.price)}
                   </div>
                 </div>
-                <Link href={signature.link}>
-                  <S.AssignLink>Assinar</S.AssignLink>
-                </Link>
+                {userHasActiveSubscription && (
+                  <Link href={signature.link}>
+                    <S.AssignLink>Assinar</S.AssignLink>
+                  </Link>
+                )}
+                {!userHasActiveSubscription && (
+                  <Link href={"/register"}>
+                    <S.AssignLink>Assinar</S.AssignLink>
+                  </Link>
+                )}
               </S.CardModalSignatures>
             ))}
           </S.Content>

@@ -1,8 +1,15 @@
+/* eslint-disable no-unused-vars */
+/* eslint-disable @typescript-eslint/no-unused-vars */
+
 import Link from "next/link";
+import { useState } from "react";
 
 import * as S from "./styles";
 
 export const SignaturePlans = () => {
+  const [userHasActiveSubscription, setUserHasActiveSubscription] =
+    useState(false);
+
   const signatures = [
     {
       signatureTime: "1 mês",
@@ -35,9 +42,16 @@ export const SignaturePlans = () => {
                   currency: "BRL",
                 }).format(signature.price)}
               </div>
-              <Link href={signature.link}>
-                <S.AssignLink>Assinar</S.AssignLink>
-              </Link>
+              {userHasActiveSubscription && (
+                <Link href={signature.link}>
+                  <S.AssignLink>Assinar</S.AssignLink>
+                </Link>
+              )}
+              {!userHasActiveSubscription && (
+                <Link href={"/register"}>
+                  <S.AssignLink>Assinar</S.AssignLink>
+                </Link>
+              )}
             </S.SignatureCard>
           ))}
         </S.SignatureArea>
