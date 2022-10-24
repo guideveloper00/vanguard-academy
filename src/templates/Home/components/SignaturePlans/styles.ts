@@ -2,31 +2,33 @@ import styled from "styled-components";
 
 export const Container = styled.div`
   background-color: rgb(38, 38, 38);
+  display: flex;
+  justify-content: center;
 `;
 
 export const Content = styled.div`
   align-items: center;
-  margin: 0 auto;
+
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   flex-direction: column;
   margin-top: 150px;
   padding: 50px 0;
-  max-width: 1120px;
+  width: 1120px;
   @media screen and (max-width: 1220px) {
-    max-width: 840px;
+    width: 840px;
   }
   @media screen and (max-width: 960px) {
-    max-width: 680px;
+    width: 680px;
   }
   @media screen and (max-width: 800px) {
-    max-width: 480px;
+    width: 480px;
   }
   @media screen and (max-width: 600px) {
-    max-width: 360px;
+    width: 360px;
   }
   @media screen and (max-width: 400px) {
-    max-width: 320px;
+    width: 320px;
   }
 `;
 

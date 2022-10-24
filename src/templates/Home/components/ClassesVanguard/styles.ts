@@ -2,13 +2,14 @@ import styled from "styled-components";
 
 export const Container = styled.div`
   background-color: #262626;
+  display: flex;
+  justify-content: center;
 `;
 
 export const Content = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: 0 auto;
   padding-top: 50px;
   max-width: 1120px;
   h2 {
@@ -54,6 +55,9 @@ export const TrailContent = styled.div`
   display: flex;
   flex-direction: column;
   height: 200px;
+  animation: animatedTopToPlace 2s ease;
+  position: relative;
+  top: 0px;
   a {
     width: fit-content;
     text-decoration: none;

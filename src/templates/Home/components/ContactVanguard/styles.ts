@@ -1,30 +1,32 @@
 import Link from "next/link";
 import styled from "styled-components";
 
-export const Container = styled.div``;
+export const Container = styled.div`
+  display: flex;
+  justify-content: center;
+`;
 
 export const Content = styled.div`
-  max-width: 1120px;
-  margin: 0 auto;
+  width: 1120px;
   display: flex;
   justify-content: space-between;
   flex-direction: column;
   align-items: center;
   margin-top: 150px;
   @media screen and (max-width: 1220px) {
-    max-width: 840px;
+    width: 840px;
   }
   @media screen and (max-width: 960px) {
-    max-width: 680px;
+    width: 680px;
   }
   @media screen and (max-width: 800px) {
-    max-width: 480px;
+    width: 480px;
   }
   @media screen and (max-width: 600px) {
-    max-width: 360px;
+    width: 360px;
   }
   @media screen and (max-width: 400px) {
-    max-width: 320px;
+    width: 320px;
   }
 `;
 
@@ -52,6 +54,9 @@ export const SocialMediaLinkContent = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  animation: animatedTopToPlace 2s ease;
+  position: relative;
+  top: 0px;
   svg {
     margin-left: 10px;
     width: 25px;

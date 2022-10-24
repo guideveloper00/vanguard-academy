@@ -1,9 +1,9 @@
 import styled from "styled-components";
 
-import IntroductionImageSVG from "../../../../../public/Programming-amico1.svg";
-
 export const Container = styled.div`
   height: calc(100vh - 80px);
+  display: flex;
+  justify-content: center;
 `;
 
 export const Content = styled.div`
@@ -11,13 +11,14 @@ export const Content = styled.div`
   align-items: center;
   max-width: 1120px;
   height: 100%;
-  margin: 0 auto;
+
   justify-content: space-between;
   @media screen and (max-width: 1220px) {
     max-width: 840px;
   }
   @media screen and (max-width: 960px) {
     max-width: 680px;
+    justify-content: center;
   }
   @media screen and (max-width: 800px) {
     max-width: 480px;
@@ -40,17 +41,6 @@ export const IntroductionText = styled.div`
   width: 70%;
   flex-direction: column;
   animation: animatedLeftToPlace 2s ease;
-  position: relative;
-  left: 0px;
-`;
-
-export const IntroductionTextMin = styled.div`
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  flex-direction: column;
   position: relative;
   left: 0px;
 `;
@@ -89,10 +79,15 @@ export const AssignButton = styled.button`
   }
 `;
 
-export const IntroductionImage = styled(IntroductionImageSVG)`
-  width: 700px;
-  height: 700px;
-  animation: animatedRightToPlace 2s ease;
-  position: relative;
-  right: 0px;
+export const IntroductionImage = styled.div`
+  svg {
+    width: 550px;
+    height: 600px;
+    animation: animatedRightToPlace 2s ease;
+    position: relative;
+    right: 0px;
+    @media screen and (max-width: 960px) {
+      display: none;
+    }
+  }
 `;

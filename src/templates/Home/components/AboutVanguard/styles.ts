@@ -64,6 +64,9 @@ export const OurMethodologyText = styled.div`
   width: 50%;
   display: flex;
   flex-direction: column;
+  animation: animatedLeftToPlace 2s ease;
+  position: relative;
+  left: 0px;
 
   a {
     width: fit-content;
@@ -97,6 +100,9 @@ export const AssembleSubtitle = styled.h3`
 
 export const AssembleText = styled.div`
   margin-top: 40px;
+  animation: animatedTopToPlace 2s ease;
+  position: relative;
+  top: 0px;
 `;
 
 export const Medals = styled.div`
