@@ -5,15 +5,16 @@ import styled from "styled-components";
 
 export const Container = styled.header`
   background-color: var(--background-header);
+  display: flex;
+  justify-content: center;
 `;
 
 export const Content = styled.nav`
-  max-width: 1120px;
   height: 80px;
-  align-items: center;
   display: flex;
+  align-items: center;
+  width: 1120px;
   justify-content: space-between;
-  margin: 0 auto;
 
   @media screen and (max-width: 1220px) {
     max-width: 840px;
@@ -49,6 +50,9 @@ export const PagesNavigation = styled.div`
   align-items: center;
   justify-content: space-between;
   height: 100%;
+  @media screen and (max-width: 960px) {
+    display: none;
+  }
   div + div {
     margin-left: 10px;
   }
@@ -88,7 +92,9 @@ export const AccountNavigation = styled.div`
   height: 100%;
   color: rgb(225, 189, 45);
   width: 300px;
-
+  @media screen and (max-width: 960px) {
+    display: none;
+  }
   div + div {
     margin-left: 10px;
   }
@@ -146,6 +152,10 @@ export const DropDownButton = styled.div`
 
 export const DropDownMenu = styled.div`
   position: relative;
+  display: none;
+  @media screen and (max-width: 960px) {
+    display: flex;
+  }
 `;
 
 export const DropDownMenuContent = styled.div`

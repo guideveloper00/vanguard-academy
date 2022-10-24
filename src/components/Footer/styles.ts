@@ -32,11 +32,20 @@ export const Content = styled.div`
 
 export const Vanguard = styled.div`
   width: 300px;
+  @media screen and (max-width: 960px) {
+    display: none;
+  }
 `;
 
 export const VanguardRights = styled.div`
+  display: flex;
+  justify-content: flex-end;
   width: 300px;
   a {
+    margin-left: 5px;
     color: rgb(59, 173, 227);
+  }
+  @media screen and (max-width: 960px) {
+    display: none;
   }
 `;
