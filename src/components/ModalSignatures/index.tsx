@@ -6,32 +6,27 @@ import { useState } from "react";
 import { Portal } from "../Portal";
 import * as S from "./styles";
 
+type ISignature = {
+  signatureTime: string;
+  price: number;
+  link: string;
+};
+
 type ModalProps = {
   isModalOpen: boolean;
   handleCloseModal: () => void;
+  signatures: ISignature[];
 };
 
-export const Modal = ({ isModalOpen, handleCloseModal }: ModalProps) => {
+export const Modal = ({
+  isModalOpen,
+  handleCloseModal,
+  signatures,
+}: ModalProps) => {
   const [userHasActiveSubscription, setUserHasActiveSubscription] =
     useState(false);
 
-  const signatures = [
-    {
-      signatureTime: "1 mês",
-      price: 50,
-      link: "/teste",
-    },
-    {
-      signatureTime: "3 mêses",
-      price: 200,
-      link: "/teste",
-    },
-    {
-      signatureTime: "1 ano",
-      price: 500,
-      link: "/teste",
-    },
-  ];
+  console.log(signatures);
 
   return (
     <Portal id="modal-root">

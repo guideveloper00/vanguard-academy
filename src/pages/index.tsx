@@ -1,39 +1,54 @@
-import type { NextPage } from "next";
+import type { GetStaticProps, NextPage } from "next";
 // import { useDispatch } from "react-redux";
 
 // import { Reducers } from "../shared/store/reducers";
 import { HomeTemplate } from "../templates/Home";
 
-// eslint-disable-next-line @typescript-eslint/naming-convention
-interface ServerSideProps {
-  product: {
-    priceId: number;
-    priceAmount: number;
-  };
+type ISignature = {
+  signatureTime: string;
+  price: number;
+  link: string;
+};
+
+interface IServerSideProps {
+  signatures: ISignature[];
 }
 
 // { product }: ServerSideProps
 
-const Home: NextPage<ServerSideProps> = () => {
+const Home: NextPage<IServerSideProps> = (props: IServerSideProps) => {
   // const dispatch = useDispatch();
   // const authActions = Reducers.authReducer.authActions;
   // product={product}
 
-  return <HomeTemplate />;
+  return <HomeTemplate signatures={props.signatures} />;
 };
 
 export default Home;
 
-// export const getStaticProps: GetStaticProps = async () => {
-//   const product = {
-//     priceId: 2,
-//     priceAmount: 5,
-//   };
+export const getStaticProps: GetStaticProps = async () => {
+  const signatures = [
+    {
+      signatureTime: "1 mês",
+      price: 50,
+      link: "/teste",
+    },
+    {
+      signatureTime: "3 mêses",
+      price: 200,
+      link: "/teste",
+    },
+    {
+      signatureTime: "1 ano",
+      price: 500,
+      link: "/teste",
+    },
+  ];
 
-//   return {
-//     props: {
-//       product,
-//     },
-//     revalidate: 60 * 60 * 24, // 24 hours
-//   };
-// };
+  return {
+    props: {
+      signatures,
+    },
+    revalidate: 60 * 60 * 24, // 24 hours
+  };
+};

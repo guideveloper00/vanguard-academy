@@ -2,10 +2,11 @@ import Link from "next/link";
 import { useState } from "react";
 
 import IntroductionImageSVG from "../../../../../public/Programming-amico1.svg";
-import { Modal } from "../../../../components/Modal";
+import { Modal } from "../../../../components/ModalSignatures";
+import { IServerSideProps } from "../../interfaces";
 import * as S from "./styles";
 
-export const Introduction = () => {
+export const Introduction = ({ signatures }: IServerSideProps) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   return (
@@ -13,6 +14,7 @@ export const Introduction = () => {
       <Modal
         isModalOpen={isModalOpen}
         handleCloseModal={() => setIsModalOpen(false)}
+        signatures={signatures}
       />
       <S.Content>
         <>

@@ -7,9 +7,10 @@ import { ClassesVanguard } from "./components/";
 import { ContactVanguard } from "./components/";
 import { Introduction } from "./components/";
 import { SignaturePlans } from "./components/";
+import { IServerSideProps } from "./interfaces";
 import * as S from "./styles";
 
-export const HomeTemplate = () => {
+export const HomeTemplate = ({ signatures }: IServerSideProps) => {
   return (
     <>
       <Head>
@@ -25,7 +26,7 @@ export const HomeTemplate = () => {
       </Head>
       <Header />
       <S.Container>
-        <Introduction />
+        <Introduction signatures={signatures} />
         <ClassesVanguard />
         <AboutVanguard />
         <SignaturePlans />
