@@ -3,14 +3,9 @@
 import Link from "next/link";
 import { useState } from "react";
 
+import { ISignature } from "../../templates/Home/interfaces";
 import { Portal } from "../Portal";
 import * as S from "./styles";
-
-type ISignature = {
-  signatureTime: string;
-  price: number;
-  link: string;
-};
 
 type ModalProps = {
   isModalOpen: boolean;

@@ -1,4 +1,4 @@
-type ISignature = {
+export type ISignature = {
   signatureTime: string;
   price: number;
   link: string;
