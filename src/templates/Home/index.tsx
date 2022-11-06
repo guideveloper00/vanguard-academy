@@ -10,7 +10,7 @@ import { SignaturePlans } from "./components/";
 import { IServerSideProps } from "./interfaces";
 import * as S from "./styles";
 
-export const HomeTemplate = ({ signatures }: IServerSideProps) => {
+export const HomeTemplate = ({ signatures, trails }: IServerSideProps) => {
   return (
     <>
       <Head>
@@ -27,7 +27,7 @@ export const HomeTemplate = ({ signatures }: IServerSideProps) => {
       <Header />
       <S.Container>
         <Introduction signatures={signatures} />
-        <ClassesVanguard />
+        <ClassesVanguard trails={trails} />
         <AboutVanguard />
         <SignaturePlans />
         <ContactVanguard />

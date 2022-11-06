@@ -13,15 +13,13 @@ type ModalProps = {
   signatures: ISignature[];
 };
 
-export const Modal = ({
+export const ModalSignatures = ({
   isModalOpen,
   handleCloseModal,
   signatures,
 }: ModalProps) => {
   const [userHasActiveSubscription, setUserHasActiveSubscription] =
     useState(false);
-
-  console.log(signatures);
 
   return (
     <Portal id="modal-root">
