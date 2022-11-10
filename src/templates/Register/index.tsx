@@ -1,12 +1,15 @@
 import Head from "next/head";
 import Link from "next/link";
-import React from "react";
+import { useRouter } from "next/router";
+import React, { useEffect } from "react";
 import ReCAPTCHA from "react-google-recaptcha";
 import { useForm } from "react-hook-form";
+import { toast } from "react-toastify";
 
 import { yupResolver } from "@hookform/resolvers/yup";
 
 import VanguardLogo from "../../../public/V-grande.png";
+import { api } from "../../services/api";
 import { schema } from "../../shared/utils/schemas";
 import * as S from "./styles";
 
@@ -14,6 +17,7 @@ type Form = {
   name: string;
   email: string;
   password: string;
+  passwordConfirmation: string;
 };
 
 export const RegisterTemplate = () => {
@@ -25,6 +29,8 @@ export const RegisterTemplate = () => {
     resolver: yupResolver(schema),
   });
 
+  const router = useRouter();
+
   const recaptchaRef = React.createRef<ReCAPTCHA>();
 
   const onReCAPTCHAChange = (token: string | null) => {
@@ -33,12 +39,49 @@ export const RegisterTemplate = () => {
     }
     recaptchaRef.current?.reset();
   };
-
-  const onSubmitHandler = async ({ name, email, password }: Form) => {
-    const token = await recaptchaRef.current?.executeAsync();
-    console.log(token);
-    console.log([name, email, password]);
+  const onSubmitHandler = async ({
+    name,
+    email,
+    password,
+    passwordConfirmation,
+  }: Form) => {
+    const recaptchaToken = await recaptchaRef.current?.executeAsync();
+    const data = {
+      name,
+      email,
+      password,
+      passwordConfirmation,
+      recaptchaToken,
+    };
+    api
+      .post("/auth/signup", data)
+      .then((response) => {
+        console.log(response.data);
+        recaptchaRef.current?.reset();
+        toast.info(response.data);
+        if (response.status === 201) {
+          router.replace("/");
+        }
+      })
+      .catch((err) => {
+        toast.error(err.response.data);
+      });
   };
+
+  useEffect(() => {
+    // JavaScript anonymous function
+    (() => {
+      if (window.localStorage) {
+        // If there is no item as 'reload'
+        // in localstorage then create one &
+        // reload the page
+        if (!localStorage.getItem("reload")) {
+          localStorage["reload"] = true;
+          window.location.reload();
+        }
+      }
+    })(); // Calling anonymous function here only
+  }, []);
 
   return (
     <>
@@ -60,12 +103,20 @@ export const RegisterTemplate = () => {
                 type={"password"}
               ></input>
               <span>{errors.password?.message || ""}</span>
+              <input
+                placeholder="Confirmar senha"
+                {...register("passwordConfirmation")}
+                type={"password"}
+              ></input>
+              <span>{errors.passwordConfirmation?.message || ""}</span>
+              <div id="html_element"></div>
               <S.Captcha>
                 <ReCAPTCHA
                   sitekey="6LdJ86QiAAAAAJ4y08SIyBnsVLpSvAtyiSeiRL_i"
                   onChange={onReCAPTCHAChange}
                   size="invisible"
                   ref={recaptchaRef}
+                  id="captcha"
                 />
               </S.Captcha>
               <S.CreateAccount type="submit">Criar conta</S.CreateAccount>

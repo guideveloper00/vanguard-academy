@@ -47,7 +47,7 @@ export const Content = styled.div`
     input {
       height: 40px;
       width: 100%;
-      margin-top: 20px;
+      margin-top: 30px;
       padding-left: 10px;
       border: none;
       border-radius: 5px;
@@ -94,7 +94,7 @@ export const RegisterInfos = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: 100%;
+  height: 80%;
   justify-content: space-between;
   animation: animatedRightToPlace 2s ease;
   position: relative;
@@ -117,7 +117,7 @@ export const CreateAccount = styled.button`
   color: rgb(225, 189, 45);
   transition: background ease 0.4s, color ease 0.4s;
   width: 100%;
-  margin-top: 20px;
+  margin-top: 30px;
   &:hover {
     background-color: rgb(225, 189, 45);
     color: #fff;

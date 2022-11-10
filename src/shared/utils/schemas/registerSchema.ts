@@ -5,9 +5,9 @@ export const schema = yup.object().shape({
   email: yup
     .string()
     .email("formato precisa ser de email")
-    .required("o email não pode estar vazio"),
-  password: yup
+    .required("o email não pode estar vazia"),
+  password: yup.string().required("a senha não pode estar vazio"),
+  passwordConfirmation: yup
     .string()
-    .min(5, "menos")
-    .required("a senha não pode estar vazio"),
+    .oneOf([yup.ref("password"), null], "As senhas não conferem"),
 });
