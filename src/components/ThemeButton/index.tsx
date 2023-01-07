@@ -6,7 +6,7 @@ import * as S from "./styles";
 
 export const ThemeButton = () => {
   const [mounted, setMounted] = useState(false);
-  const { theme, setTheme } = useTheme();
+  const {theme, setTheme} = useTheme();
   const [checked, setChecked] = useState<boolean>();
   const [touched, setTouched] = useState(false);
 

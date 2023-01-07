@@ -1,8 +1,10 @@
 import type { GetStaticProps, NextPage } from "next";
+
 // import { useEffect, useState } from "react";
 
 // import { useDispatch } from "react-redux";
 // import { Reducers } from "../shared/store/reducers";
+// import { api } from "../services/api";
 import { HomeTemplate } from "../templates/Home";
 import { IServerSideProps } from "../templates/Home/interfaces";
 
@@ -69,6 +71,12 @@ export const getStaticProps: GetStaticProps = async () => {
       ],
     },
   ];
+
+  // api
+  //   .get("/login", { headers: { origin: "http://localhost:3000" } })
+  //   .then((result) => {
+  //     console.log(result);
+  //   });
 
   // if (!signatures) {
   //   return { redirect: { destination: "/notfound", permanent: false } };

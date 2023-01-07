@@ -11,6 +11,7 @@ import { IServerSideProps } from "./interfaces";
 import * as S from "./styles";
 
 export const HomeTemplate = ({ signatures, trails }: IServerSideProps) => {
+
   return (
     <>
       <Head>

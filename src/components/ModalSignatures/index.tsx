@@ -1,6 +1,5 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import Link from "next/link";
 import { useState } from "react";
 
 import { ISignature } from "../../templates/Home/interfaces";
@@ -43,14 +42,10 @@ export const ModalSignatures = ({
                   </div>
                 </div>
                 {userHasActiveSubscription && (
-                  <Link href={signature.link}>
-                    <S.AssignLink>Assinar</S.AssignLink>
-                  </Link>
+                    <S.AssignLink href="/register">Assinar</S.AssignLink>
                 )}
                 {!userHasActiveSubscription && (
-                  <Link href={"/register"}>
-                    <S.AssignLink>Assinar</S.AssignLink>
-                  </Link>
+                    <S.AssignLink href="/register">Assinar</S.AssignLink>
                 )}
               </S.CardModalSignatures>
             ))}

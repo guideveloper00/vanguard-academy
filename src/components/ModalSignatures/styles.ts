@@ -39,7 +39,7 @@ export const CardModalSignatures = styled.div`
   border-radius: 5px;
 `;
 
-export const AssignLink = styled.div`
+export const AssignLink = styled.a`
   font-size: 1.2rem;
   cursor: pointer;
   border: none;

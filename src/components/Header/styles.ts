@@ -115,7 +115,8 @@ export const Login = styled.div`
   }
 `;
 
-export const Register = styled.div`
+export const Register = styled.a`
+  color: rgb(225, 189, 45);
   cursor: pointer;
   display: block;
   display: flex;

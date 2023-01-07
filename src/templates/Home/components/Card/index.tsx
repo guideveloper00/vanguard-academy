@@ -29,10 +29,10 @@ export const CardTechnology = ({
       {!isSelected && (
         <S.NotSelectedContainer onClick={() => onClick(title)}>
           <S.Content>
-            <S.NotSelectedText>{title}</S.NotSelectedText>
-            <S.NotSelectedIcon>
+            <S.Text>{title}</S.Text>
+            <S.Icon>
               <Icon />
-            </S.NotSelectedIcon>
+            </S.Icon>
           </S.Content>
         </S.NotSelectedContainer>
       )}

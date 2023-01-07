@@ -35,13 +35,18 @@ export const Content = styled.div`
 export const CardArea = styled.div`
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 50px;
+  width: 1120px;
+  gap: 5%;
+  @media screen and (max-width: 1220px) {
+    max-width: 840px;
+  }
   @media screen and (max-width: 1080px) {
-    gap: 25px;
+    grid-template-columns: repeat(2, 1fr);
+    width: 680px;
+     gap: 5%;
   }
   @media screen and (max-width: 960px) {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 25px;
+     gap: 5%;
   }
 `;
 

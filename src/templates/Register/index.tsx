@@ -1,7 +1,7 @@
 import Head from "next/head";
 import Link from "next/link";
 import { useRouter } from "next/router";
-import React, { useEffect } from "react";
+import React from "react";
 import ReCAPTCHA from "react-google-recaptcha";
 import { useForm } from "react-hook-form";
 import { toast } from "react-toastify";
@@ -46,6 +46,7 @@ export const RegisterTemplate = () => {
     passwordConfirmation,
   }: Form) => {
     const recaptchaToken = await recaptchaRef.current?.executeAsync();
+    console.log(recaptchaToken);
     const data = {
       name,
       email,
@@ -67,21 +68,6 @@ export const RegisterTemplate = () => {
         toast.error(err.response.data);
       });
   };
-
-  useEffect(() => {
-    // JavaScript anonymous function
-    (() => {
-      if (window.localStorage) {
-        // If there is no item as 'reload'
-        // in localstorage then create one &
-        // reload the page
-        if (!localStorage.getItem("reload")) {
-          localStorage["reload"] = true;
-          window.location.reload();
-        }
-      }
-    })(); // Calling anonymous function here only
-  }, []);
 
   return (
     <>
